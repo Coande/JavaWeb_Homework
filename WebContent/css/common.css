@@ -1,0 +1,56 @@
+        * {
+            font-family: "MicroSoft Yahei";
+        }
+        
+        body {
+/*            background: #2c3e50;*/
+            background: #EAEAEA;
+        }
+        
+        #container {
+            background: #2980b9;
+            text-align: center;
+            color: #FFF;
+            border-radius: 15px;
+        }
+        
+        h1 {
+            font-size: 25px;
+            padding: 15px 0px 10px;
+            margin: 0px;
+        }
+        
+        #username_error,
+        #password_error,
+        #password1_error,
+        #password2_error {
+            color: #E4BEC3;
+            font-size: 10px;
+            visibility: hidden;
+            padding: 3px 0px 7px;
+        }
+        
+        .input_text {
+            background: #fff;
+            font-size: 15px;
+            border: none;
+            color: #222;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        
+        .input_button {
+            background: #B8CDF5;
+            padding: 5px 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: #176097;
+            border: none;
+            border-radius: 5px;
+            border: 1px solid #A4A6EA;
+        }
+        
+        .input_button:hover {
+            background: #4aa3df;
+            color: #fff;
+        }
