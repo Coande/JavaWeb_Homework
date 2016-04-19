@@ -1,20 +1,22 @@
 package com.e12e.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.e12e.bean.Admin;
 
-public class ModifyPassword extends HttpServlet {
+
+public class PasswordModifyAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public ModifyPassword() {
+    public PasswordModifyAction() {
         super();
     }
 
@@ -25,14 +27,17 @@ public class ModifyPassword extends HttpServlet {
 		String password_new=request.getParameter("password_new");
 		
 		ServletContext application=this.getServletContext();
-		String username_app=(String) application.getAttribute("username");
-		String password_app=(String) application.getAttribute("password");
-		if(username_app.equals(username)&&password_app.equals(password_old)){
-			application.setAttribute("password", password_new);
-			response.sendRedirect(request.getContextPath()+"/modify_password_success.jsp");
-		}
-		else{
-			response.sendRedirect(request.getContextPath()+"/modify_password_fail.jsp");
+		ArrayList< Admin> admins= (ArrayList<Admin>) application.getAttribute("admins");
+		for(int i=0;i<admins.size();i++){
+			if(admins.get(i).getUsername().equals(username)&&admins.get(i).getPassword().equals(password_old)){
+				admins.get(i).setPassword(password_new);
+				application.setAttribute("admins", admins);
+				response.sendRedirect(request.getContextPath()+"/message/PasswordModifySuccess.jsp");
+				return ;
+			}
+			else{
+				response.sendRedirect(request.getContextPath()+"/message/PasswordModifyFailed.jsp");
+			}
 		}
 	}
 

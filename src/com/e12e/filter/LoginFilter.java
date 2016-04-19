@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/**
+ * 过滤未登录请求，只有白名单才可直接访问，否者跳转到登录页面
+ * @author Coande
+ *
+ */
 public class LoginFilter implements Filter {
 	private FilterConfig config;
 	@Override
@@ -51,7 +55,7 @@ public class LoginFilter implements Filter {
 			arg2.doFilter(arg0, arg1);
 		} else {
 			System.out.println("阻止："+request.getRequestURI());
-			response.sendRedirect(request.getContextPath()+"/login.html");
+			response.sendRedirect(request.getContextPath()+"/Login.html");
 		}
 
 	}

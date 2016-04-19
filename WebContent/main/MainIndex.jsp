@@ -6,8 +6,8 @@
 <head>
     <title>Coande管理系统</title>
     <meta charset="utf-8">
-    <link href="css/normalize.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="<%=request.getContextPath() %>/css/normalize.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/font-awesome.min.css">
     <script>
         var flag = true;
 
@@ -125,17 +125,17 @@
         <i class="fa fa-bars bar" onclick="toggle_sidebar();"></i>
         &nbsp;&nbsp;
         <span>
-        	欢迎，<%=session.getAttribute("username") %>&nbsp;&nbsp;<a href="servlet/DoLogout"><b>登出</b></a>
+        	欢迎，<%=session.getAttribute("username") %>&nbsp;&nbsp;<a href="<%=request.getContextPath() %>/Servlet/LogoutAction"><b>登出</b></a>
         
         </span>
         
-         <img src="images/avatar.png" class="avatar">
+         <img src="<%=request.getContextPath() %>/images/avatar.png" class="avatar">
     </div>
 
 
     <div class="main" id="main">
-        <iframe src="sidebar.html" frameborder="0" scrolling="auto" id="sidebar" float="left"  height="100%"></iframe>
-        <iframe src="welcome.jsp" name="content" id="content" frameborder="0" scrolling="auto"  float="left" height="100%" width="800px"></iframe>
+        <iframe src="<%=request.getContextPath() %>/main/Sidebar.jsp" frameborder="0" scrolling="auto" id="sidebar" float="left"  height="100%"></iframe>
+        <iframe src="<%=request.getContextPath() %>/content/Welcome.jsp" name="content" id="content" frameborder="0" scrolling="auto"  float="left" height="100%" width="800px"></iframe>
     </div>
     <div class="footer">
         &copy; Coande&nbsp;&nbsp;请使用Chrome内核浏览器浏览本页

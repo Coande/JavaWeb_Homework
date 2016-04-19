@@ -30,7 +30,7 @@ function checkInfo(){
 </script>
 </head>
 <body>
-<form action="servlet/ModifyPassword" method="post">
+<form action="<%=request.getContextPath() %>/Servlet/PasswordModify" method="post">
 	<table>
 		<tr>
 			<td>用户名：</td>

@@ -9,6 +9,6 @@
 <body>
 <h1>该页面 可能 忘记写了~</h1>
 <hr />
-<a href="<%=request.getContextPath()%>/login.html">返回登录页面</a>
+<a href="<%=request.getContextPath()%>/Login.html">返回登录页面</a>
 </body>
 </html>

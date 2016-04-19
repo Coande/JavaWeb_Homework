@@ -2,69 +2,70 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>JavaWebProject</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>SearchInfo</servlet-name>
-    <servlet-class>com.e12e.servlet.SearchInfo</servlet-class>
+    <servlet-name>StudentInfoSearch</servlet-name>
+    <servlet-class>com.e12e.servlet.StudentInfoSearchAction</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SearchInfo</servlet-name>
-    <url-pattern>/servlet/SearchInfo</url-pattern>
+    <servlet-name>StudentInfoSearch</servlet-name>
+    <url-pattern>/Servlet/StudentInfoSearch</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>DataServlet</servlet-name>
-    <servlet-class>com.e12e.servlet.DataServlet</servlet-class>
+    <servlet-name>LoadDataAction</servlet-name>
+    <servlet-class>com.e12e.servlet.LoadDataAction</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DataServlet</servlet-name>
-    <url-pattern>/servlet/DataServlet</url-pattern>
+    <servlet-name>LoadDataAction</servlet-name>
+    <url-pattern>/Servlet/LoadDataAction</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>DoLogin</servlet-name>
-    <servlet-class>com.e12e.servlet.DoLogin</servlet-class>
+    <servlet-name>LoginAction</servlet-name>
+    <servlet-class>com.e12e.servlet.LoginAction</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DoLogin</servlet-name>
-    <url-pattern>/servlet/DoLogin</url-pattern>
+    <servlet-name>LoginAction</servlet-name>
+    <url-pattern>/Servlet/LoginAction</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>DoLogout</servlet-name>
-    <servlet-class>com.e12e.servlet.DoLogout</servlet-class>
+    <servlet-name>LogoutAction</servlet-name>
+    <servlet-class>com.e12e.servlet.LogoutAction</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DoLogout</servlet-name>
-    <url-pattern>/servlet/DoLogout</url-pattern>
+    <servlet-name>LogoutAction</servlet-name>
+    <url-pattern>/Servlet/LogoutAction</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ModifyPassword</servlet-name>
-    <servlet-class>com.e12e.servlet.ModifyPassword</servlet-class>
+    <servlet-name>PasswordModify</servlet-name>
+    <servlet-class>com.e12e.servlet.PasswordModify</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ModifyPassword</servlet-name>
-    <url-pattern>/servlet/ModifyPassword</url-pattern>
+    <servlet-name>PasswordModify</servlet-name>
+    <url-pattern>/Servlet/PasswordModify</url-pattern>
   </servlet-mapping>
+  
+
   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>com.e12e.filter.LoginFilter</filter-class>
     <init-param>
       <param-name>noLoginPaths</param-name>
-      <param-value>login_fail.html;DoLogin;login.html;login_error.html;loginCheck.js;registerCheck.js;.css;.png;</param-value>
+      <!-- 设置过滤器白名单 -->
+      <param-value>.html;Servlet/;.png;.js;.css;.svg;.otf;</param-value>
     </init-param>
   </filter>
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <error-page>
+  
+  
+  
+<!--   <error-page>
     <error-code>404</error-code>
-    <location>/error_404.jsp</location>
-  </error-page>
+    <location>/message/Error404.jsp</location>
+  </error-page> -->
+  
 </web-app>

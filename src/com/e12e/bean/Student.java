@@ -1,11 +1,11 @@
 package com.e12e.bean;
 /**
- * 学生信息Bean
+ * 瀛︾敓淇℃伅Bean
  * @author Coande
  *
  */
 
-public class StudentInfo2 {
+public class Student {
 	private int id;
 	private String name;
 	private int age;
@@ -14,11 +14,11 @@ public class StudentInfo2 {
 	private String Minzu;
 	private String  bornPlace;
 	
-	public StudentInfo2(){
+	public Student(){
 		
 	}
 	
-	public StudentInfo2(int id,String name,int age,String grade,String sex,String Minzu,String bornPlace){
+	public Student(int id,String name,int age,String grade,String sex,String Minzu,String bornPlace){
 		this.id=id;
 		this.name=name;
 		this.age=age;

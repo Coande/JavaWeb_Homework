@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList,com.e12e.bean.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
@@ -65,13 +66,13 @@ ul li a {
 
 <body>
 	<ul>
-		<li class="selected"><a href="welcome.jsp" target="content">系统首页</a>
-		</li>
-		<li><a href="searchinfo.html" target="content">信息查询</a></li>
-		<li><a href="modify_password.jsp" target="content">密码修改</a></li>
-		<li><a href="jspwritten.html" target="content">JSP笔试</a></li>
-		<li><a href="studentInfoManage.jsp" target="content">JSP机试</a></li>
-		<li><a href="readme.jsp" target="content">说明文档</a></li>
+			<% String path=request.getContextPath(); %>
+		<li class="selected"><a href="<%=path %>/content/Welcome.jsp" target="content">系统首页</a></li>
+		<li><a href="<%=path %>/content/StudentInfoSearch.jsp" target="content">信息查询</a></li>
+		<li><a href="<%=path %>/content/PasswordModify.jsp" target="content">密码修改</a></li>
+		<li><a href="<%=path %>/content/JSPWrittenExam.jsp" target="content">JSP笔试</a></li>
+		<li><a href="<%=path %>/content/StudentInfoManage.jsp" target="content">JSP机试</a></li>
+		<li><a href="<%=path %>/content/Readme.jsp" target="content">说明文档</a></li>
 	</ul>
 </body>
 

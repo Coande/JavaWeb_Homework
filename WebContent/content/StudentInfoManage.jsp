@@ -76,8 +76,8 @@ table tbody tr td {
 		</thead>
 		<tbody>
 			<%
-				ArrayList<StudentInfo2> studentList = (ArrayList<StudentInfo2>) application.getAttribute("studentList");
-				for (StudentInfo2 stu : studentList) {
+				ArrayList<Student> studentList = (ArrayList<Student>) application.getAttribute("studentList");
+				for (Student stu : studentList) {
 			%>
 
 			<input type="hidden" value="<%=stu.getId()%>" name="id">

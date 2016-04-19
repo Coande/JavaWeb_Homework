@@ -40,11 +40,11 @@
 		if(info){
 			var tr=document.createElement("tr");
 			var td1=document.createElement("td")
-			td1.innerHTML=info["studentName"];
+			td1.innerHTML=decodeURI(info["studentName"]);
 			var td2=document.createElement("td");
 			td2.innerHTML=info["studentAge"];
 			var td3=document.createElement("td");
-			td3.innerHTML=info["studentClass"];
+			td3.innerHTML=decodeURI(info["studentClass"]);
 			
 			tr.appendChild(td1);
 			tr.appendChild(td2);
@@ -79,7 +79,7 @@
 </head>
 <body>
 <h1>学生信息查询系统</h1>
-<form action="servlet/SearchInfo" method="post">
+<form action="<%=request.getContextPath() %>/Servlet/StudentInfoSearch" method="post">
 	姓名：<input type="text" placeholder="请输入姓名" id="studentName" name="studentName"><input onclick="return check();" type="submit" value="查询">
 </form>
 <table>

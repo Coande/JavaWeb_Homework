@@ -67,7 +67,7 @@
 
     <div id="container">
         <h1>登录</h1>
-        <form action="servlet/DoLogin" method="post">
+        <form action="Servlet/LoginAction" method="post">
             <input type="text"  value="admin" id="username" class="input_text" name="username" placeholder="用户名" onblur="checkUsername();">
             <div id="username_error">用户名填写不正确</div>
 
@@ -75,7 +75,7 @@
             <div id="password_error">密码填写不正确</div>
 
             <input type="submit" value="登录" class="input_button" onclick="return checkUsername()&&checkPassword()">&nbsp;&nbsp;
-            <input type="button" class="input_button" value="注册" onclick=" window.location.href='register.html'">
+            <input type="button" class="input_button" value="注册" onclick=" window.location.href='Register.html'">
 
         </form>
     </div>
