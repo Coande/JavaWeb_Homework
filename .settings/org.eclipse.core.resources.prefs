@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
-encoding//WebContent/iframeIndex.jsp=UTF-8
+encoding//WebContent/main/MainIndex.jsp=UTF-8
+encoding//WebContent/pages/EditableTable.jsp=UTF-8
+encoding//WebContent/pages/JSPWrittenExam.jsp=UTF-8
+encoding//WebContent/pages/MoveableDiv.jsp=UTF-8
+encoding//WebContent/pages/StudentInfoSearch.jsp=UTF-8
 encoding//src/com/e12e/filter/LoginFilter.java=UTF-8

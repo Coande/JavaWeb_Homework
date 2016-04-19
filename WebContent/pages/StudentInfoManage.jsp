@@ -38,11 +38,8 @@ table tbody tr td {
 
 		var tr = obj.parentNode.parentNode.parentNode;
 		var shows = tr.getElementsByClassName("show");
-		alert("length:" + shows.length);
 		var hiddens = tr.getElementsByClassName("hidden");
-		alert("length:" + hiddens.length);
-		var i, j;
-		for (i = 0; i < shows.length; i++) {
+		for ( var i in shows) {
 			shows[i].className = "hidden";
 		}
 		for ( var j in hiddens) {
@@ -82,36 +79,30 @@ table tbody tr td {
 				ArrayList<StudentInfo2> studentList = (ArrayList<StudentInfo2>) application.getAttribute("studentList");
 				for (StudentInfo2 stu : studentList) {
 			%>
-			<form method="post">
-				<input type="hidden" value="<%=stu.getId()%>" name="id">
-				<tr>
-					<td><span class="show"><%=stu.getName()%></span>
-					<input
-						class="hidden" name="name" type="text" value="<%=stu.getName() %>">
-					</td>
-					<td><span class="show"><%=stu.getAge()%></span><input
-						class="hidden" name="age" type="text" value="<%=stu.getAge()%>"></td>
-					<td><span class="show"><%=stu.getSex()%></span><input
-						class="hidden" name="sex" type="text" value="<%=stu.getSex()%>"></td>
-					<td><span class="show"><%=stu.getMinzu()%></span><input
-						class="hidden" name="Minzu" type="text"
-						value="<%=stu.getMinzu()%>"></td>
-					<td><span class="show"><%=stu.getBornPlace()%></span><input
-						class="hidden" name="bornPlace" type="text"
-						value="<%=stu.getBornPlace()%>"></td>
-					<td>
-						<div class="show">
-							<input type="button" onclick="modify(this)" value="修改"><input
-								type="submit" onclick="del(this);" value="删除" name="type">
-						</div>
 
-						<div class="hidden">
-							<input type="submit" onclick="save(this);" value="保存" name="type"><input
-								type="button" onclick="cancel(this);" value="取消">
-					</td>
-					</div>
-				</tr>
-			</form>
+			<input type="hidden" value="<%=stu.getId()%>" name="id">
+			<tr>
+				<td><%=stu.getName()%><input name="name" type="text"
+					value="<%=stu.getName()%>"></td>
+				<td><%=stu.getAge()%><input name="age" type="text"
+					value="<%=stu.getAge()%>"></td>
+				<td><%=stu.getSex()%><input name="sex" type="text"
+					value="<%=stu.getSex()%>"></td>
+				<td><%=stu.getMinzu()%><input name="Minzu" type="text"
+					value="<%=stu.getMinzu()%>"></td>
+				<td><%=stu.getBornPlace()%><input name="bornPlace" type="text"
+					value="<%=stu.getBornPlace()%>"></td>
+				<td><input type="button" onclick="modify(this)" value="修改"><input
+					type="submit" onclick="del(this);" value="删除" name="type">
+
+
+
+					<input type="submit" onclick="save(this);" value="保存" name="type"><input
+					type="button" onclick="cancel(this);" value="取消"></td>
+
+			</tr>
+			
+			
 			<%
 				}
 			%>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <!-- 
@@ -118,7 +120,7 @@ padding-top:120px;
 		<tr>
 			<td id="name"><h3>单选：1[5分]</h3></td>
 			<td id="age" style="text-align:left;padding-left:20px;">
-			<h4> 在“<%=”和“%>”标记之间放置（），可以直接输出其值。       </h4>
+			<h4> 在“&lt;%=”和“%\>”标记之间放置（），可以直接输出其值。       </h4>
 						 <h4>   A） 变量     </h4><br>
 						 <h4> B）Java表达式 </h4><br>
 						 <h4>  C）字符串 </h4><br>
