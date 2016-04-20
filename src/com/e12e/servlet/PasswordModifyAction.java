@@ -28,9 +28,12 @@ public class PasswordModifyAction extends HttpServlet {
 		
 		ServletContext application=this.getServletContext();
 		ArrayList< Admin> admins= (ArrayList<Admin>) application.getAttribute("admins");
+		
 		for(int i=0;i<admins.size();i++){
+			//修改密码
 			if(admins.get(i).getUsername().equals(username)&&admins.get(i).getPassword().equals(password_old)){
-				admins.get(i).setPassword(password_new);
+				Admin admin=new Admin(admins.get(i).getUsername(), password_new, admins.get(i).getLevel());
+				admins.set(i, admin);
 				application.setAttribute("admins", admins);
 				response.sendRedirect(request.getContextPath()+"/message/PasswordModifySuccess.jsp");
 				return ;

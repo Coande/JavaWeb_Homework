@@ -39,7 +39,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>PasswordModify</servlet-name>
-    <servlet-class>com.e12e.servlet.PasswordModify</servlet-class>
+    <servlet-class>com.e12e.servlet.PasswordModifyAction</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PasswordModify</servlet-name>
