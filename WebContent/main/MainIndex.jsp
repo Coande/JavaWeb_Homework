@@ -60,7 +60,7 @@
         .logo {
             padding: 0px;
             margin: 0px;
-            width: 300px;
+            width: 20%;
             display: inline-block;
             background: #3498db;
             text-align: center;
@@ -134,8 +134,8 @@
 
 
     <div class="main" id="main">
-        <iframe src="<%=request.getContextPath() %>/main/Sidebar.jsp" frameborder="0" scrolling="auto" id="sidebar" float="left"  height="100%"></iframe>
-        <iframe src="<%=request.getContextPath() %>/content/Welcome.jsp" name="content" id="content" frameborder="0" scrolling="auto"  float="left" height="100%" width="800px"></iframe>
+        <iframe src="<%=request.getContextPath() %>/main/Sidebar.jsp" frameborder="0" scrolling="auto" id="sidebar" float="left"  height="100%" width="20%"></iframe>
+        <iframe src="<%=request.getContextPath() %>/content/Welcome.jsp" name="content" id="content" frameborder="0" scrolling="auto"  float="left" height="100%" width="79%"></iframe>
     </div>
     <div class="footer">
         &copy; Coande&nbsp;&nbsp;请使用Chrome内核浏览器浏览本页

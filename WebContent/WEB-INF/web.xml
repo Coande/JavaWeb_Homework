@@ -46,6 +46,15 @@
     <url-pattern>/Servlet/PasswordModify</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>StudentInfoManage</servlet-name>
+    <servlet-class>com.e12e.servlet.StudentInfoManageAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentInfoManage</servlet-name>
+    <url-pattern>/Servlet/StudentInfoManage</url-pattern>
+  </servlet-mapping>
+  
 
   <filter>
     <filter-name>LoginFilter</filter-name>
@@ -53,7 +62,7 @@
     <init-param>
       <param-name>noLoginPaths</param-name>
       <!-- 设置过滤器白名单 -->
-      <param-value>.html;Servlet/;.png;.js;.css;.svg;.otf;</param-value>
+      <param-value>.html;/Servlet/;.png;/js/;.css;/fonts/;</param-value>
     </init-param>
   </filter>
   <filter-mapping>

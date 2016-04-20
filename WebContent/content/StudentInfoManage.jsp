@@ -1,4 +1,4 @@
-<%@page import="com.e12e.bean.StudentInfo2"%>
+<%@page import="com.e12e.bean.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -17,7 +17,6 @@
 table {
 	border: 1px solid #eee;
 	margin: 15px auto;
-	width: 600px;
 }
 
 table thead {
@@ -27,42 +26,73 @@ table thead {
 table tbody tr td {
 	border-top: 1px solid #ccc;
 }
-
-.hidden {
-	display: none;
+td{
+	width: 150px;
 }
 </style>
 
 <script type="text/javascript">
-	function modify(obj) {
+	var lastModifyLineId=-1;
 
-		var tr = obj.parentNode.parentNode.parentNode;
-		var shows = tr.getElementsByClassName("show");
-		var hiddens = tr.getElementsByClassName("hidden");
-		for ( var i in shows) {
-			shows[i].className = "hidden";
+	function modifyLine(id) {
+		if(lastModifyLineId!=-1){
+			changeDisplay("hide", lastModifyLineId, "none");
+			changeDisplay("show", lastModifyLineId, "block");
+			changeDisplay("hide", id, "block");
+			changeDisplay("show", id, "none");
+			lastModifyLineId=id;
+		}else{
+			lastModifyLineId=id;
+			changeDisplay("show",id,"none");
+			changeDisplay("hide",id,"");
 		}
-		for ( var j in hiddens) {
-			hiddens[j].className = "show";
+	}
+	
+	function cancelLine(id){
+		lastModifyLineId=-1;
+		changeDisplay("hide", id, "none");
+		changeDisplay("show", id, "block");
+	}
+	
+
+	
+	function saveLine(id){
+		var isSave=confirm("你确定保存吗？");
+		if(isSave){
+			document.getElementById("opType").value="save";
+			document.getElementById("stuId").value=id;
+			document.getElementById("form").submit();
 		}
 	}
-
-	function del() {
-
+	
+	function deleteLine(id){
+		var isDelete=confirm("你确定删除吗？");
+		if(isDelete){
+			document.getElementById("opType").value="delete";
+			document.getElementById("stuId").value=id;
+			document.getElementById("form").submit();
+		}
 	}
-
-	function save() {
-
-	}
-
-	function cancel() {
-
+	
+	
+	
+	function changeDisplay(type,id,isDisplay){
+		document.getElementById(type+"_name_"+id).style.display=isDisplay;
+		document.getElementById(type+"_age_"+id).style.display=isDisplay;
+		document.getElementById(type+"_sex_"+id).style.display=isDisplay;
+		document.getElementById(type+"_Minzu_"+id).style.display=isDisplay;
+		document.getElementById(type+"_bornPlace_"+id).style.display=isDisplay;
+		document.getElementById(type+"_modify_"+id).style.display=isDisplay;
 	}
 </script>
 </head>
 <body>
 
 	<caption>学生信息管理系统</caption>
+	
+	<form id="form" method="post" action="<%=request.getContextPath() %>/Servlet/StudentInfoManage">
+	<input type="hidden" id="stuId" name="id" />
+	<input type="hidden" id="opType" name="type" />
 	<table>
 		<thead>
 			<tr>
@@ -76,37 +106,27 @@ table tbody tr td {
 		</thead>
 		<tbody>
 			<%
-				ArrayList<Student> studentList = (ArrayList<Student>) application.getAttribute("studentList");
-				for (Student stu : studentList) {
+				ArrayList<Student> students = (ArrayList<Student>) application.getAttribute("students");
+				for (Student stu : students) {
 			%>
-
-			<input type="hidden" value="<%=stu.getId()%>" name="id">
 			<tr>
-				<td><%=stu.getName()%><input name="name" type="text"
-					value="<%=stu.getName()%>"></td>
-				<td><%=stu.getAge()%><input name="age" type="text"
-					value="<%=stu.getAge()%>"></td>
-				<td><%=stu.getSex()%><input name="sex" type="text"
-					value="<%=stu.getSex()%>"></td>
-				<td><%=stu.getMinzu()%><input name="Minzu" type="text"
-					value="<%=stu.getMinzu()%>"></td>
-				<td><%=stu.getBornPlace()%><input name="bornPlace" type="text"
-					value="<%=stu.getBornPlace()%>"></td>
-				<td><input type="button" onclick="modify(this)" value="修改"><input
-					type="submit" onclick="del(this);" value="删除" name="type">
-
-
-
-					<input type="submit" onclick="save(this);" value="保存" name="type"><input
-					type="button" onclick="cancel(this);" value="取消"></td>
-
-			</tr>
 			
+			<td><div id="show_name_<%=stu.getId() %>"><%=stu.getName() %></div>  <div id="hide_name_<%=stu.getId() %>"  style="display:none;"><input type="text" name="name_<%=stu.getId() %>" value="<%=stu.getName() %>" /></div></td>
+			<td><div id="show_age_<%=stu.getId() %>"><%=stu.getAge() %></div>    <div id="hide_age_<%=stu.getId() %>"  style="display:none;"><input type="text" name="age_<%=stu.getId() %>" value="<%=stu.getAge() %>" /></div></td>
+			<td><div id="show_sex_<%=stu.getId() %>"><%=stu.getSex() %></div>   <div id="hide_sex_<%=stu.getId() %>"   style="display:none;"><input type="text" name="sex_<%=stu.getId() %>" value="<%=stu.getSex() %>"/></div></td>
+			<td><div id="show_Minzu_<%=stu.getId() %>"><%=stu.getMinzu() %></div>   <div id="hide_Minzu_<%=stu.getId() %>"   style="display:none;"><input type="text" name="Minzu_<%=stu.getId() %>" value="<%=stu.getMinzu() %>"/></div></td>
+			<td><div id="show_bornPlace_<%=stu.getId() %>"><%=stu.getBornPlace() %></div>   <div id="hide_bornPlace_<%=stu.getId() %>"   style="display:none;"><input type="text" name="bornPlace_<%=stu.getId() %>" value="<%=stu.getBornPlace() %>" /></div></td>
+			
+			<td><div id="show_modify_<%=stu.getId() %>"><input type="button" value="修改" onclick="modifyLine(<%=stu.getId() %>);"/><input type="button" onclick="deleteLine(<%=stu.getId() %>);" value="删除" /></div>
+			<div id="hide_modify_<%=stu.getId() %>" style="display:none;"><input type="button" value="保存" onclick="saveLine(<%=stu.getId() %>);" /><input type="button" onclick="cancelLine(<%=stu.getId() %>);" value="取消" /></div></td>
+			
+			</tr>
 			
 			<%
 				}
 			%>
 		</tbody>
 	</table>
+	</form>
 </body>
 </html>
