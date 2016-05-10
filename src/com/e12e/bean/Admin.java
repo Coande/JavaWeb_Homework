@@ -1,18 +1,26 @@
 package com.e12e.bean;
 
 public class Admin {
+	private String id;
 	private String username;
 	private String password;
-	private int level;
+
+	private int role;
 	
 	public Admin(){
 		
 	}
-	
+	public String getAdminId() {
+		return id;
+	}
+
+	public void setAdminId(String adminId) {
+		this.id = adminId;
+	}
 	public Admin(String username,String password,int level){
 		this.username=username;
 		this.password=password;
-		this.level=level;
+		this.role=level;
 	}
 	
 	public String getUsername() {
@@ -28,10 +36,10 @@ public class Admin {
 		this.password = password;
 	}
 	public int getLevel() {
-		return level;
+		return role;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+	public void setLevel(int role) {
+		this.role = role;
 	}
 	
 }

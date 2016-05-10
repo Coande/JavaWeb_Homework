@@ -11,21 +11,21 @@ public class Student {
 	private int age;
 	private String grade;
 	private String sex;
-	private String Minzu;
-	private String  bornPlace;
+	private String nation;
+	private String  birthplace;
 	
 	public Student(){
 		
 	}
 	
-	public Student(int id,String name,int age,String grade,String sex,String Minzu,String bornPlace){
+	public Student(int id,String name,int age,String grade,String sex,String nation,String birthplace){
 		this.id=id;
 		this.name=name;
 		this.age=age;
 		this.grade=grade;
 		this.sex=sex;
-		this.Minzu=Minzu;
-		this.bornPlace=bornPlace;
+		this.nation=nation;
+		this.birthplace=birthplace;
 	}
 	
 	
@@ -60,16 +60,16 @@ public class Student {
 		this.sex = sex;
 	}
 	public String getMinzu() {
-		return Minzu;
+		return nation;
 	}
 	public void setMinzu(String minzu) {
-		Minzu = minzu;
+		nation = minzu;
 	}
 	public String getBornPlace() {
-		return bornPlace;
+		return birthplace;
 	}
 	public void setBornPlace(String bornPlace) {
-		this.bornPlace = bornPlace;
+		this.birthplace = bornPlace;
 	}
 
 }

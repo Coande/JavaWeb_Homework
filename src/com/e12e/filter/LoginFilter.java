@@ -51,7 +51,7 @@ public class LoginFilter implements Filter {
 
 		}
 		
-		if (session.getAttribute("username") != null) {
+		if (username != null) {
 			arg2.doFilter(arg0, arg1);
 		} else {
 			System.out.println("阻止："+request.getRequestURI());

@@ -1,14 +1,21 @@
 package com.e12e.bean;
 
 public class Page {
-	
+	private int id;
 	private String name;
+
 	private String desc;
 	private String path;
 	public Page(){
 		
 	}
-	
+	public int getPageId() {
+		return id;
+	}
+
+	public void setPageId(int pageId) {
+		this.id = pageId;
+	}
 	public Page(String name,String path,String desc){
 		this.name=name;
 		this.path=path;
